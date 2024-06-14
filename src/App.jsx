@@ -14,28 +14,31 @@ import UsersContextProvider from "./context/Users";
 import Dashboard from "./components/Dashboard";
 import MainLayout from "./components/MainLayout";
 import Categories from "./components/Categories";
+import CardsContextProvider from "./context/Cards";
 
 function App() {
   return (
     <Router>
       <ModalContextProvider>
         <UsersContextProvider>
-          <div className="app w-full h-dvh p-2 dark-bg">
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/main" element={<PrivateRoute />}>
-                <Route element={<MainLayout />}>
-                  <Route index path="dashboard" element={<Dashboard />} />
-                  <Route path="category" element={<Categories />} />
-                  <Route path="deals" element={<Deals />} />
-                  <Route path="processing" element={<Processing />} />
-                  <Route path="settings" element={<Settings />} />
-                  <Route path="business" element={<Business />} />
+          <CardsContextProvider>
+            <div className="app w-full h-dvh p-2 dark-bg">
+              <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/main" element={<PrivateRoute />}>
+                  <Route element={<MainLayout />}>
+                    <Route index path="dashboard" element={<Dashboard />} />
+                    <Route path="category" element={<Categories />} />
+                    <Route path="deals" element={<Deals />} />
+                    <Route path="processing" element={<Processing />} />
+                    <Route path="settings" element={<Settings />} />
+                    <Route path="business" element={<Business />} />
+                  </Route>
                 </Route>
-              </Route>
-            </Routes>
-          </div>
+              </Routes>
+            </div>
+          </CardsContextProvider>
         </UsersContextProvider>
       </ModalContextProvider>
     </Router>

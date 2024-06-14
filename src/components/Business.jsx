@@ -43,9 +43,6 @@ function Business() {
     url: "",
   });
 
-  if (imagePreview.active) {
-    window.scrollY = 0;
-  }
 
   useEffect(() => {
     fetch(
@@ -60,6 +57,7 @@ function Business() {
       .then((data) => {
         setBusinessData(data);
         setLoading(false);
+        setError(false);
       })
       .catch((err) => {
         setLoading(false);

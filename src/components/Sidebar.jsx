@@ -28,7 +28,7 @@ function Sidebar() {
           alt=""
           className="w-2/5 h-20 logo rounded-full "
         />
-        <h3 className="font-bold text-2xl text-purple-300 uppercase">
+        <h3 className="font-bold text-xl text-purple-300 uppercase">
           {currentUser?.username}
         </h3>
         <h3 className="text-purple-300 font-medium ">{currentUser?.email}</h3>
